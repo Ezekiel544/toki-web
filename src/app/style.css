@@ -1,0 +1,192 @@
+.head-div{
+    border: 2px solid red;
+}
+.whitebg{
+    background-color: white;
+    /* border: 2px solid red; */
+}
+.makedeposit{
+   display: flex;
+   justify-content: end;
+   text-align: end;
+   /* border: 2px solid blue; */
+}
+.myfont{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.iphone-div{
+    /* border: 2px solid blue; */
+}
+.iphone-img{
+    /* border: 2px solid red; */
+    height: 500px;
+     margin-bottom: -80px;
+    width:75%;
+}
+.better-div{
+    /* border: 2px solid red; */
+}
+.sendmoneydiv{
+    /* border: 2px solid red; */
+    margin-bottom: -180px;
+}
+.sendmoneytext{
+    font-family: 'Times New Roman', Times, serif;
+    color:#50555C;
+;
+}
+
+.darktheme{
+    position: relative;
+    height: 480px;
+    /* top: 80px; */
+    right: -90px;
+    margin-top: -10px;
+    margin-right: -90px;
+    margin-bottom: -80px;
+    width: 90%;
+}
+.virtualcard{
+    margin-bottom: 5px;
+}
+.virtualcard img{
+    width: 100%;
+}
+.comissiondiv{
+    display: flex;
+    justify-content: center;
+}
+.comissiondiv img{
+   position: relative;
+   width: 66%;
+   bottom: -50px;
+}
+.purplesection{
+    margin-top: 40px;
+}
+.footerimgdiv {
+    position: relative;
+   margin-bottom: -129px; /* Pulls content up, removing the gap */
+   margin-right: -230px;
+   /* border: 2px solid red; */
+}
+.footerimgdiv img{
+     width: 80%;
+}
+.ratefeature{
+    /* border: 2px solid red; */
+}
+.ratefeature h5{
+    font-size: 27px;
+    letter-spacing: -3%;
+}
+.card-section{
+    margin-top: 150px;
+}   
+/* For screens 768px and below (mobile) */
+
+@media (max-width: 997px) {
+  /* styles here */
+  .card-section{
+    margin-top: 180px;
+}   
+.darktheme{
+    position: relative;
+    height: 380px;
+    /* top: 80px; */
+    right: -20px;
+    margin-top: -10px;
+    margin-right: -90px;
+    margin-bottom: -80px;
+    width: 100%;
+}
+.footerimgdiv {
+    position: relative;
+   margin-bottom: -129px; 
+   margin-right: -190px;
+   /* border: 2px solid red; */
+}
+.iphone-img{
+    /* border: 2px solid red; */
+    height: 450px;
+}
+}
+
+@media (max-width: 768px) {
+  .download{
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: lighter;
+  }
+  .tokicardlogo{
+    width:110px ;
+  }
+   .mobile-only {
+    display: none;
+  }
+ .btn{
+    padding: 5px 10px;
+    /* padding: 20px; */
+ }
+ .iphone-img{
+    /* border: 2px solid red; */
+    height: 260px;
+     margin-bottom: -80px;
+    width:100%;
+}
+.iphone-img{
+    /* border: 2px solid red; */
+    /* height: 300px; */
+     margin-bottom: -80px;
+    width:100%;
+}
+.card-section{
+    margin-top: 220px;
+}
+.darktheme{
+    position: relative;
+    height: 380px;
+    /* top: 80px; */
+    right: -20px;
+    margin-top: -10px;
+    margin-right: -90px;
+    margin-bottom: -30px;
+    width: 100%;
+}
+.footerimgdiv {
+    position: relative;
+   margin-bottom: -62px; /* Pulls content up, removing the gap */
+   margin-right: -150px;
+}
+.makedeposit{
+    padding: 13px;
+}
+/* .sendmoneyhr{
+    border: 2px solid red;
+} */
+ .ratefeatureh{
+    text-align: center;
+ }
+ .ratefeature h5{
+    font-size: 19px;
+    letter-spacing: -3%;
+}
+}
+.btn-divv{
+    border: 2px solid red;
+}
+/* @media (max-width: 991px) {
+  .downlaod{
+    padding: 20px;
+  }
+} */
+/* @media (max-width: 810px) {
+    .iphone-img{
+    height: 400px;
+    width:80%;
+}
+.footerimgdiv {
+   margin-bottom: -128px; 
+   margin-right: -150px;
+}
+} */
