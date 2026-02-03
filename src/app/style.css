@@ -21,8 +21,11 @@
     /* border: 2px solid red; */
     height: 500px;
      margin-bottom: -80px;
-    width:75%;
+    width:70%;
 }
+ .betterafrica{
+    font-weight: bold;
+ }
 .better-div{
     /* border: 2px solid red; */
 }
@@ -33,9 +36,10 @@
 .sendmoneytext{
     font-family: 'Times New Roman', Times, serif;
     color:#50555C;
-;
 }
-
+.darkthemediv{
+    /* border: 2px solid red; */
+}
 .darktheme{
     position: relative;
     height: 480px;
@@ -44,7 +48,21 @@
     margin-top: -10px;
     margin-right: -90px;
     margin-bottom: -80px;
-    width: 90%;
+    width: 80%;
+    /* border: 2px solid blue; */
+}
+.darkthemetwoo{
+    border: 2px solid red;
+}
+.darkthree{
+    border: 2px solid blue;
+}
+.securedirect{
+    text-align: center;
+    font-size: 13px;
+    color: #000000B2;
+;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .virtualcard{
     margin-bottom: 5px;
@@ -60,18 +78,22 @@
    position: relative;
    width: 66%;
    bottom: -50px;
+   margin-top: -50px;
 }
 .purplesection{
     margin-top: 40px;
 }
 .footerimgdiv {
     position: relative;
-   margin-bottom: -129px; /* Pulls content up, removing the gap */
+   margin-bottom: -65px; 
    margin-right: -230px;
    /* border: 2px solid red; */
 }
 .footerimgdiv img{
      width: 80%;
+}
+.ratefeaturediv{
+    /* border: 2px solid red; */
 }
 .ratefeature{
     /* border: 2px solid red; */
@@ -81,10 +103,12 @@
     letter-spacing: -3%;
 }
 .card-section{
-    margin-top: 150px;
+    margin-top: 230px;
 }   
 /* For screens 768px and below (mobile) */
-
+.tinyfont{
+    font-size: 9px;
+}
 @media (max-width: 997px) {
   /* styles here */
   .card-section{
@@ -102,7 +126,7 @@
 }
 .footerimgdiv {
     position: relative;
-   margin-bottom: -129px; 
+   margin-bottom: -65px; 
    margin-right: -190px;
    /* border: 2px solid red; */
 }
@@ -113,6 +137,9 @@
 }
 
 @media (max-width: 768px) {
+ .betterafrica{
+    font-weight: bolder;
+ }
   .download{
     padding: 8px 12px;
     font-size: 14px;
@@ -130,10 +157,11 @@
  }
  .iphone-img{
     /* border: 2px solid red; */
-    height: 260px;
+    height: 230px;
      margin-bottom: -80px;
     width:100%;
 }
+
 .iphone-img{
     /* border: 2px solid red; */
     /* height: 300px; */
@@ -143,23 +171,43 @@
 .card-section{
     margin-top: 220px;
 }
+.darkthemediv{
+    /* border: 2px solid blue; */
+}
 .darktheme{
     position: relative;
     height: 380px;
     /* top: 80px; */
-    right: -20px;
-    margin-top: -10px;
-    margin-right: -90px;
+    right: -6px;
+    margin-top: -30px;
+    margin-right: -70px;
     margin-bottom: -30px;
     width: 100%;
+      /* border: 2px solid red; */
 }
 .footerimgdiv {
     position: relative;
-   margin-bottom: -62px; /* Pulls content up, removing the gap */
-   margin-right: -150px;
+    right: -6px;
+    margin-top: -30px;
+    margin-right: -120px;
+    margin-bottom: -64px;
+    width: 100%;
+   
+}
+.footerimgdiv img{
+    /* border: 2px solid red; */
+    
+}
+.btn-divvv{
+    border: 2px solid red;
 }
 .makedeposit{
     padding: 13px;
+}
+.sendmoneytext{
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:#50555C;
+    font-size: 14px;
 }
 /* .sendmoneyhr{
     border: 2px solid red;
@@ -170,6 +218,7 @@
  .ratefeature h5{
     font-size: 19px;
     letter-spacing: -3%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 }
 .btn-divv{

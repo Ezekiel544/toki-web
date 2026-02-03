@@ -30,14 +30,14 @@ const Logo = () => (
 );
 
 const AppStoreBadge = ({ type }: { type: "apple" | "google" }) => (
-  <button className="flex items-center gap-3 btn bg-white border border-gray-100 rounded-2xl md:px-6 md:py-2 shadow-sm hover:shadow-md transition-shadow">
+  <button className="flex items-center gap-3 btn bg-white border border-gray-100 rounded-2xl md:px-6 md:py-2 shadow-sm hover:shadow-md transition-shadow ">
     {type === "apple" ? (
       <>
         <svg className="w-8 h-8" viewBox="0 0 384 512">
           <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
         </svg>
        <div className="text-left whitespace-nowrap">
-                  <div className="text-xs text-gray-600">Download on the</div>
+                  <div className="text-xs text-gray-600 tinyfont">Download on the</div>
                   <div className="text-sm font-semibold text-gray-900">App Store</div>
                 </div>
       </>
@@ -58,7 +58,7 @@ const AppStoreBadge = ({ type }: { type: "apple" | "google" }) => (
           <p className="text-lg font-bold text-black leading-tight">Google Play</p>
         </div> */}
          <div className="text-left whitespace-nowrap">
-                  <div className="text-xs text-gray-600">GET IT ON</div>
+                  <div className="text-xs text-gray-600 tinyfont">GET IT ON</div>
                   <div className="text-sm font-semibold text-gray-900">Google Play</div>
                 </div>
       </>
@@ -163,8 +163,8 @@ const LightSection = () => (
         </div>
 
         <div className="max-w-lg   sendmoneydiv">
-          <h3 className="text-3xl md:text-5xl  mb-6 leading-tight sendmoneyhr">Send money <br className="mobile-only"/> to loved ones <br className="mobile-only"/> in an instant.</h3>
-          <p className="text-gray-500 mb-12 text-lg sendmoneytext">Crypto shouldn't be complicated. We remove friction so you can spend your crypto with ease.</p>
+          <h3 className="text-3xl md:text-5xl mb-2 md:mb-6 leading-tight sendmoneyhr">Send money <br className="mobile-only"/> to loved ones <br className="mobile-only"/> in an instant.</h3>
+          <p className="text-gray-500 mb-12 text-lg sendmoneytext">Crypto shouldn't be complicated. We remove friction <br className="md:d-none"/> so you can spend your crypto with ease.</p>
           <img 
                   src={familyman}
                     alt="People using app" 
@@ -218,17 +218,17 @@ const LightSection = () => (
 // --- Sub-components for DarkSection ---
 
 const DarkSection = () => (
-  <section className="py-16 md:py-32 px-2 md:px-6 mx-2 md:mx-0 bg-[#0a0a0a] text-white overflow-hidden rounded-[1rem] md:rounded-[3rem] ">
-    <div className="max-w-7xl mx-auto darkthemetwo px-2 md:px-16 darkthemetwo">
+  <section className="py-16 md:py-16  px-2 md:px-6 mx-2 md:mx-0 bg-[#0a0a0a] text-white overflow-hidden rounded-[1rem] md:rounded-[3rem] ">
+    <div className="max-w-7xl mx-auto px-2 md:px-16 ">
       <div className="text-center mb-8 md:mb-24">
         <h2 className="text-3xl md:text-5xl font-bold mb-6 ">And that is not all</h2>
         <p className="text-gray-400 max-w-lg mx-auto text-center ">Your Tokicard wallet is packed with neat features that further assist you in <br className="md:d-none"/> operating your daily finances</p>
       </div>
 
-      <div className="bg-[#141414] rounded-[3rem] p-4 md:p-16 mb-8 border border-white/5 relative overflow-hidden group">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div className="bg-[#141414] rounded-[1rem] md:rounded-[3rem] p-4 md:p-16 mb-8 border border-white/5 relative overflow-hidden group">
+        <div className="grid md:grid-cols-2 md:gap-12 items-center ratefeaturediv ">
           <div className="ratefeature">
-            <h5 className="text-1xl md:text-2xl font-bold mb-8 leading-tight text-[#A0A0A0] myfont ratefeatureh">
+            <h5 className="text-1xl md:text-2xl font-bold md:mb-8 leading-tight text-[#A0A0A0] myfont ratefeatureh mt-4 md:mt-0">
               Our rate feature helps you check and compare token prices quickly so you always get the <span className="text-[#ffffff]">best deal.</span>
             </h5>
            
@@ -241,7 +241,7 @@ const DarkSection = () => (
       </div>
 
       <div className="grid md:grid-cols-2 gap-8">
-        <div className="bg-[#141414] rounded-[3rem] p-10 border border-white/5 group overflow-hidden">
+        <div className="bg-[#141414] rounded-[1rem] md:rounded-[3rem] p-8 md:p-10 border border-white/5 group overflow-hidden">
           <h4 className="text-2xl font-bold mb-4">Virtual Card</h4>
           <p className="text-gray-400 mb-12">Create virtual cards instantly, load with your local currency, and shop online worldwide.</p>
           <div className="relative ">
@@ -253,8 +253,8 @@ const DarkSection = () => (
           </div>
         </div>
 
-        <div className="bg-[#141414] rounded-[3rem] p-10 border border-white/5 group overflow-hidden flex flex-col justify-between">
-          <div>
+        <div className="bg-[#141414] rounded-[1rem] md:rounded-[3rem] md:p-10 border border-white/5 group overflow-hidden flex flex-col justify-between  p-8">
+          <div >
             <h4 className="text-2xl font-bold mb-4">Commissions</h4>
             <p className="text-gray-400 mb-12">Share Tokicard with others and get rewarded with commissions for every referral.</p>
           </div>
@@ -280,7 +280,7 @@ const DarkSection = () => (
             </div>
             <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-full h-40 bg-[#8b2cf5]/20 blur-[60px] rounded-full" />
           </div> */}
-          <motion.div whileHover={{ scale: 1.05, rotate: 2 }} className="comissiondiv">
+          <motion.div whileHover={{ scale: 1.05, rotate: 2 }} className="comissiondiv ">
             <img src={comission} alt="Commissions" className=" object-contain" />
           </motion.div>
         </div>
@@ -293,27 +293,26 @@ const DarkSection = () => (
 
 export default function App() {
   return (
-    <div className=" min-h-screen  text-[#1a1a1a] font-sans selection:bg-[#8b2cf5]/20 overflow-x-hidden w-full py-4 md:py-6">
+    <div className=" min-h-screen  text-[#1a1a1a] font-sans selection:bg-[#8b2cf5]/20 overflow-x-hidden w-full ">
       <div className="fixed inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_100%)] from-[#8b2cf5]/5 to-transparent pointer-events-none " />
 
-      <nav className="fixed top-0 left-0 right-0 z-50 md:mx-8">
-      {/* <nav> */}
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between w-full  py-4 md:py-3">
-          <Logo />
-          <button className="download bg-[#8b2cf5] text-white md:px-8 py-2.5 rounded-full hover:bg-[#7a25d9] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#8b2cf5]/20">
-            Download
-          </button>
-        </div>
-      </nav>
+    <nav className="fixed top-0 left-0 right-0 z-50  backdrop-blur-md border-b border-purple-200/30 ">
+  <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between w-full py-4 md:py-3 ">
+    <Logo />
+    <button className="download bg-[#8b2cf5] text-white md:px-8 py-2.5 rounded-full hover:bg-[#7a25d9] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#8b2cf5]/20">
+      Download
+    </button>
+  </div>
+</nav>
 
      <main className="pt-30 pb-20 px-6 relative  bg-gradient-to-br from-white to-[#ECDFFB]">
         <div className="max-w-4xl mx-auto text-center mb-8 md:mb-16 relative z-10 better-div">
-        <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold text-gray-900 mb-2 md:mb-4 leading-tight">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-boldd betterafrica text-gray-900 mb-2 md:mb-4 leading-tight">
               A Better Way for Africans <br className="mobile-only"/>
                to Spend Crypto
             </h1>
-            <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto mb-8 md:mb-10">
-              A secure and direct way to turn crypto into spendable Naira, built for<br className="hidden md:block" />
+            <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto mb-8 md:mb-10 text-center securedirect mt-8">
+              A secure and direct way to turn crypto into <br className="md:none"/> spendable Naira, built for <br className="hidden md:block" />
               everyday use across Africa
             </p>
           
@@ -340,7 +339,7 @@ export default function App() {
 
     <div className="relative  purplesection">
       {/* Main Purple Section */}
-      <div className="bg-gradient-to-br from-purple-600 to-purple-700 rounded-3xl rounded-[1rem] md:rounded-[3rem] py-16 md:py-32 px-4 md:px-6 mx-2 md:mx-0 ">
+      <div className="bg-gradient-to-br from-purple-600 to-purple-700 rounded-3xl rounded-[1rem] md:rounded-[3rem] py-16 md:py-16 px-4 md:px-6 mx-2 md:mx-0 ">
         <div className="max-w-7xl mx-auto">
           {/* Text Content */}
           <div className="text-center mb-8">
@@ -369,7 +368,7 @@ export default function App() {
           {/* Phone Mockup */}
           <div className="flex justify-center">
             <div className="relative footerimgdiv">
-              {/* Replace this src with your actual phone mockup image */}
+              {/* Repl ace this src with your actual phone mockup image */}
               <img 
                 src={footerimg}
                 alt="Toldcard App" 
@@ -387,7 +386,7 @@ export default function App() {
           <p className="text-sm text-gray-600">
             Copyright © 2026 Toldcard All Rights Reserved
           </p>
-
+          
           {/* Social Icons */}
           <div className="flex items-center gap-4">
             <a href="#" className="text-gray-900 hover:text-purple-600 transition-colors">
