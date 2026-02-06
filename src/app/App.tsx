@@ -24,6 +24,8 @@ import Eth from './components/figma/eth.svg';
 import Polygon from './components/figma/polygon.svg';
 import Usdt from './components/figma/usdt.svg';
 import Base from './components/figma/base.svg';
+import Googleplay from './components/figma/googleplay.svg';
+import Apple from './components/figma/apple.svg';
 import './style.css';
 // --- Components ---
 
@@ -49,16 +51,17 @@ const chains = [
   const duplicatedChains = [...chains, ...chains];
 
 const AppStoreBadge = ({ type }: { type: "apple" | "google" }) => (
-  <button className="flex items-center gap-3 btn bg-white border border-gray-100 rounded-2xl  md:py-0 shadow-sm hover:shadow-md transition-shadow ">
+  <button className="flex items-center gap-3 btn bg-white border border-gray-100 rounded-2xl  md:py-0 shadow-sm  transition-shadow ">
     {type === "apple" ? (
       <>
-        <svg className="w-8 h-8" viewBox="0 0 384 512">
+        {/* <svg className="w-8 h-8" viewBox="0 0 384 512">
           <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
         </svg>
        <div className="text-left whitespace-nowrap">
                   <div className="text-xs text-gray-600 tinyfont">Download on the</div>
                   <div className="text-sm font-semibold text-gray-900">App Store</div>
-                </div>
+                </div> */}
+                <img src={Apple} alt="Apple App Store" className="applestore"/>
       </>
     ) : (
       <>
@@ -69,11 +72,12 @@ const AppStoreBadge = ({ type }: { type: "apple" | "google" }) => (
                   <path d="M4.5 21.37L18.23 13.62L16.5 12L4.5 21.37Z" fill="#00AB4E"/>
                   <path d="M18.23 10.38L20.91 11.94C21.64 12.35 21.64 13.65 20.91 14.06L18.23 13.62V10.38Z" fill="#FF3E00"/>
                 </svg> */}
-                <img src={Playstoreicon} alt="Google Play Store" />
+                {/* <img src={Playstoreicon} alt="Google Play Store" />
          <div className="text-left whitespace-nowrap ">
                   <div className="text-xs text-gray-600 tinyfont">GET IT ON</div>
                   <div className="text-sm font-semibold text-gray-900">Google Play</div>
-                </div>
+                </div> */}
+                <img src={Googleplay} alt="Google Play Store"  className="googleplay"/>
       </>
     )}
   </button>
@@ -99,13 +103,13 @@ const LightSection = () => (
         Available chains
       </h3>
 
-      {/* Marquee Container */}
+   {/* Marquee Container */}
       <div className="relative w-full overflow-hidden">
         <div className="marquee-container flex gap-3 hover:[animation-play-state:paused]">
           {duplicatedChains.map((chain, index) => (
             <div
               key={index}
-              className="chain-badge flex items-center gap-2  bg-gray-50 hover:bg-gray-100 rounded-full border border-gray-200 whitespace-nowrap cursor-pointer transition-colors flex-shrink-0"
+              className="chain-badge flex items-center gap-2 px-4 py-2.5 bg-gray-50 hover:bg-gray-100 rounded-full border border-gray-200 whitespace-nowrap cursor-pointer transition-colors flex-shrink-0"
             >
               <img src={chain.icon} alt={chain.name} className="w-5 h-5" />
               <span className="text-gray-500 text-sm font-medium">{chain.name}</span>
@@ -118,11 +122,19 @@ const LightSection = () => (
       <style jsx>{`
         .marquee-container {
           display: flex;
-          animation: marquee 30s linear infinite;
+          animation: marquee 10s linear infinite;
+          will-change: transform;
         }
 
         .marquee-container:hover {
           animation-play-state: paused;
+        }
+
+        /* Faster on mobile */
+        @media (max-width: 768px) {
+          .marquee-container {
+            animation: marquee 8s linear infinite;
+          }
         }
 
         @keyframes marquee {
@@ -274,7 +286,7 @@ export default function App() {
 
      <main className="pt-26 pb-20 px-6 relative  bg-gradient-to-br from-white to-[#ECDFFB] maindiv ">
         <div className="max-w-4xl mx-auto text-center mb-8 md:mb-0 relative z-10 better-div">
-        <h1 className="text-4xl md:text-5xl lg:text-5xl  betterafrica text-gray-900 mb-2  leading-tight">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl  betterafrica text-gray-900 mb-2  leading-tight">
               A Better Way for Africans <br className="mobile-only"/>
                to Spend Crypto
             </h1>

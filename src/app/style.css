@@ -11,7 +11,12 @@
   font-weight: 100 900;
   font-style: italic;
 }
-
+.googleplay{
+    width: 120px;
+}
+.applestore{
+    width: 120px;
+}
 .head-div{
     border: 2px solid red;
 }
@@ -41,7 +46,7 @@
     width:73%;
 }
  .betterafrica{
-    font-weight: bolder;
+    /* font-weight: 900; */
      font-family: "Host Grotesk", sans-serif;
  }
 .sendmoneydiv{
@@ -192,9 +197,10 @@
 .comissiondiv img{
    position: relative;
    bottom: -70px;
-   margin-top: -120px;
+   margin-top: -100px;
 }
 }
+
 
 @media (max-width: 769px) {
 .better-div{
@@ -202,7 +208,7 @@
     margin-top: 30px;
 }
  .betterafrica{
-    font-weight: bolder;
+    font-weight: 900;
  }
   .download{
     padding: 8px 12px;
@@ -231,13 +237,6 @@
 }
 .securedirect{
     margin-top: 20px;
-}
-
-.iphone-img{
-    /* border: 2px solid red; */
-    /* height: 300px; */
-     margin-bottom: -80px;
-    width:100%;
 }
 .card-section{
     margin-top: 220px;
@@ -318,4 +317,9 @@ ratefeaturediv{
     line-height: 20px;
 }
 
+}
+@media (min-width: 410px) and (max-width: 450px) {
+  .iphone-img{ 
+     height: 255px;
+  }
 }
