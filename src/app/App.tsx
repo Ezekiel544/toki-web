@@ -294,7 +294,7 @@ export default function App() {
           </motion.div>
         </div>
 
-        <div className="relative max-w-5xl mx-auto flex justify-center items-center  iphone-div">
+        <div className="relative max-w-5xl mx-auto flex justify-center items-center  iphone-div object-contain">
           <img src={iphone} alt="iPhone with Tokicard App" className="iphone-img" />
       
         </div>
