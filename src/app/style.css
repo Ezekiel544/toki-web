@@ -172,15 +172,26 @@
    /* border: 2px solid red; */
 }
 .iphone-img{
-    height: 420px;
+    height: 350px;
      width:53%;
 }
  .mobile-only {
     display: block;
   }
+  .makedeposit img{
+    height: 550px;
+}
+.darksection{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.darktwo{
+      padding-left: 10px;
+    padding-right: 10px;
+}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
 .better-div{
     /* border: 2px solid red; */
     margin-top: 30px;

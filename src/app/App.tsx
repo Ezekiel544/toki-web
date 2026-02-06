@@ -208,7 +208,7 @@ const LightSection = () => (
 
 const DarkSection = () => (
   <section className="py-16 md:py-16  px-2 md:px-6 mx-2 md:mx-0 bg-[#0a0a0a] text-white overflow-hidden rounded-[1rem] md:rounded-[3rem] hostfont darksection">
-    <div className="max-w-7xl mx-auto px-2 md:px-16 ">
+    <div className="max-w-7xl mx-auto px-2 md:px-16 darktwo">
       <div className="text-center mb-8 md:mb-24">
         <h2 className="text-3xl md:text-5xl font-bold mb-6 ">And that is not all</h2>
         <p className="text-gray-400 max-w-lg mx-auto text-center tokiwallet">Your Tokicard wallet is packed with neat features that <br className="hidden md:block"/> further assist you in <br className="md:hidden"/> operating your daily finances</p>
