@@ -7,8 +7,8 @@ import {
   Globe, Users 
 } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
-import Tokicard from './components/figma/Tokicard.png';
-import Playstoreicon from './components/figma/playstore.png';
+import Tokicard from './components/figma/Tokicard.svg';
+import Playstoreicon from './components/figma/playstoreicon.svg';
 import iphone from './components/figma/iphone.png';
 import familyman from './components/figma/familyman.png';
 import makedeposit from './components/figma/makedeposit.png';
@@ -19,6 +19,11 @@ import darktheme from './components/figma/darktheme.png';
 import virtualcard from './components/figma/virtualcard.png';
 import comission from './components/figma/comission.png';
 import footerimg from './components/figma/footerimg.png';
+import Solana from './components/figma/solana.svg';
+import Eth from './components/figma/eth.svg';
+import Polygon from './components/figma/polygon.svg';
+import Usdt from './components/figma/usdt.svg';
+import Base from './components/figma/base.svg';
 import './style.css';
 // --- Components ---
 
@@ -29,8 +34,22 @@ const Logo = () => (
   </div>
 );
 
+const chains = [
+    { id: 1, name: 'Solana', icon: Solana },
+    { id: 2, name: 'Ethereum', icon: Eth },
+    { id: 3, name: 'Tether', icon: Usdt },
+    { id: 4, name: 'Tether', icon: Usdt },
+    { id: 5, name: 'Base', icon: Base },
+    { id: 6, name: 'Solana', icon: Solana },
+    { id: 7, name: 'Ethereum', icon: Eth },
+    { id: 8, name: 'Tether', icon: Usdt },
+    { id: 9, name: 'Polygon', icon: Polygon },
+  ];
+  // Duplicate chains for seamless loop
+  const duplicatedChains = [...chains, ...chains];
+
 const AppStoreBadge = ({ type }: { type: "apple" | "google" }) => (
-  <button className="flex items-center gap-3 btn bg-white border border-gray-100 rounded-2xl md:px-6 md:py-2 shadow-sm hover:shadow-md transition-shadow ">
+  <button className="flex items-center gap-3 btn bg-white border border-gray-100 rounded-2xl  md:py-0 shadow-sm hover:shadow-md transition-shadow ">
     {type === "apple" ? (
       <>
         <svg className="w-8 h-8" viewBox="0 0 384 512">
@@ -43,21 +62,15 @@ const AppStoreBadge = ({ type }: { type: "apple" | "google" }) => (
       </>
     ) : (
       <>
-        {/* <svg className="w-8 h-8" viewBox="0 0 512 512">
-          <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z" fill="#ea4335" />
-        </svg> */}
-        {/* <img src={Playstoreicon} alt="Google Play Store" /> */}
-         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
+      
+         {/* <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
                   <path d="M3 20.5V3.5C3 2.67 3.84 2.24 4.5 2.63L16.5 12L4.5 21.37C3.84 21.76 3 21.33 3 20.5Z" fill="#00D9FF"/>
                   <path d="M16.5 12L4.5 2.63L18.23 10.38L16.5 12Z" fill="#FFCE00"/>
                   <path d="M4.5 21.37L18.23 13.62L16.5 12L4.5 21.37Z" fill="#00AB4E"/>
                   <path d="M18.23 10.38L20.91 11.94C21.64 12.35 21.64 13.65 20.91 14.06L18.23 13.62V10.38Z" fill="#FF3E00"/>
-                </svg>
-        {/* <div className="text-left">
-          <p className="text-[10px] uppercase font-semibold text-gray-500 leading-none">GET IT ON</p>
-          <p className="text-lg font-bold text-black leading-tight">Google Play</p>
-        </div> */}
-         <div className="text-left whitespace-nowrap">
+                </svg> */}
+                <img src={Playstoreicon} alt="Google Play Store" />
+         <div className="text-left whitespace-nowrap ">
                   <div className="text-xs text-gray-600 tinyfont">GET IT ON</div>
                   <div className="text-sm font-semibold text-gray-900">Google Play</div>
                 </div>
@@ -66,105 +79,81 @@ const AppStoreBadge = ({ type }: { type: "apple" | "google" }) => (
   </button>
 );
 
-const FloatingIcon = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => (
-  <motion.div
-    initial={{ y: 0 }}
-    animate={{ y: [0, -15, 0] }}
-    transition={{
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut",
-      delay
-    }}
-    className={`absolute bg-white p-4 rounded-full shadow-lg ${className}`}
-  >
-    {children}
-  </motion.div>
-);
 
-const Tooltip = ({ title, desc, icon, className = "", delay = 0 }: { title: string; desc: string; icon: React.ReactNode; className?: string; delay?: number }) => (
-  <motion.div
-    initial={{ opacity: 0, scale: 0.9, x: 20 }}
-    animate={{ opacity: 1, scale: 1, x: 0 }}
-    transition={{ delay, duration: 0.5 }}
-    className={`absolute bg-white/90 backdrop-blur-sm p-3 rounded-2xl shadow-xl border border-white flex items-center gap-3 w-64 ${className}`}
-  >
-    <div className="w-10 h-10 bg-[#8b2cf5]/10 rounded-xl flex items-center justify-center text-[#8b2cf5]">
-      {icon}
-    </div>
-    <div>
-      <h4 className="font-bold text-sm text-black">{title}</h4>
-      <p className="text-[10px] text-gray-500">{desc}</p>
-    </div>
-  </motion.div>
-);
+
 
 // --- Sub-components for LightSection ---
 
-const TransactionRow = ({ icon, name, sub, amount, color }: any) => (
-  <div className="flex items-center justify-between p-3.5 bg-white rounded-3xl border border-gray-50 shadow-sm mb-3">
-    <div className="flex items-center gap-3">
-      <div className={`w-11 h-11 rounded-full flex items-center justify-center text-white ${color}`}>
-        <span className="font-bold text-sm">{icon}</span>
-      </div>
-      <div>
-        <p className="text-[13px] font-bold text-gray-900 leading-tight">{name}</p>
-        <p className="text-[10px] text-gray-400 font-medium">{sub}</p>
-      </div>
-    </div>
-    <div className="bg-emerald-50 px-3 py-1 rounded-full">
-      <p className="text-[11px] font-bold text-emerald-600">+ ₦ {amount}</p>
-    </div>
-  </div>
-);
 
-const BillRow = ({ icon, name, type }: any) => (
-  <div className="flex items-center justify-between p-3.5 bg-white rounded-3xl border border-gray-50 shadow-sm mb-3">
-    <div className="flex items-center gap-3">
-      <div className="w-11 h-11 rounded-full overflow-hidden flex items-center justify-center bg-gray-50 border border-gray-100">
-        <img src={icon} alt={name} className="w-7 h-7 object-contain" />
-      </div>
-      <p className="text-[13px] font-bold text-gray-900">{name}</p>
-    </div>
-    <p className="text-[11px] font-bold text-gray-900 mr-2">{type}</p>
-  </div>
-);
 
-const UserRow = ({ img, name, date, amount }: any) => (
-  <div className="flex items-center justify-between p-3.5 bg-white rounded-3xl border border-gray-50 shadow-sm mb-3">
-    <div className="flex items-center gap-3">
-      <img src={img} alt={name} className="w-11 h-11 rounded-full object-cover border border-gray-100" />
-      <div>
-        <p className="text-[13px] font-bold text-gray-900 leading-tight">{name}</p>
-        <p className="text-[10px] text-gray-400 font-medium">Received, {date}</p>
-      </div>
-    </div>
-    <div className="bg-emerald-50 px-3 py-1 rounded-full">
-      <p className="text-[11px] font-bold text-emerald-600">+ ₦ {amount}</p>
-    </div>
-  </div>
-);
+
+
 
 const LightSection = () => (
-  <section className="py-8 md:py-32 px-2 md:px-6 bg-white overflow-hidden">
-                   
-    <div className="max-w-7xl mx-auto">
+  <section className="py-2 md:py-0 px-4 md:px-6  overflow-hidden lightsection">
+
+    <div className=" mx-auto marque">
+       <div className="w-full overflow-hidden py-8 bg-white">
+      {/* Title */}
+      <h3 className="text-gray-400 text-sm font-normal text-center mb-6">
+        Available chains
+      </h3>
+
+      {/* Marquee Container */}
+      <div className="relative w-full overflow-hidden">
+        <div className="marquee-container flex gap-3 hover:[animation-play-state:paused]">
+          {duplicatedChains.map((chain, index) => (
+            <div
+              key={index}
+              className="chain-badge flex items-center gap-2  bg-gray-50 hover:bg-gray-100 rounded-full border border-gray-200 whitespace-nowrap cursor-pointer transition-colors flex-shrink-0"
+            >
+              <img src={chain.icon} alt={chain.name} className="w-5 h-5" />
+              <span className="text-gray-500 text-sm font-medium">{chain.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* CSS for marquee animation */}
+      <style jsx>{`
+        .marquee-container {
+          display: flex;
+          animation: marquee 30s linear infinite;
+        }
+
+        .marquee-container:hover {
+          animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+      `}</style>
+    </div> 
+     </div> 
+
+    <div className="max-w-7xl mx-auto pt-8">
          {/* Section Heading */}
-            <div className="text-center mb-8 md:mb-12">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+            <div className="text-center mb-8 md:mb-26">
+              <h2 className="text-2xl md:text-3xl lg:text-3xl font-bolder text-gray-900 leading-tight hostfont convertcrypto">
                 Convert crypto to Naira automatically <br className="mobile-only"/>
                 fast secure and without middlemen
               </h2>
             </div>
 
-      <div className="grid md:grid-cols-2  items-center mb-32 whitebg gap-12 md:gap-16">
+      <div className="grid md:grid-cols-2  items-center mb-32 whitebg gap-12 md:gap-16 rmd">
         <div className=" makedeposit">
           <img src={makedeposit} alt="" />
         </div>
 
         <div className="max-w-lg   sendmoneydiv">
-          <h3 className="text-3xl md:text-5xl mb-2 md:mb-6 leading-tight sendmoneyhr">Send money <br className="mobile-only"/> to loved ones <br className="mobile-only"/> in an instant.</h3>
-          <p className="text-gray-500 mb-12 text-lg sendmoneytext">Crypto shouldn't be complicated. We remove friction <br className="md:d-none"/> so you can spend your crypto with ease.</p>
+          <h4 className="text-3xl md:text-5xl mb-2 md:mb-6 leading-tight sendmoneyhr hostfont">Send money <br className="mobile-only"/> to loved ones <br className="mobile-only"/> in an instant.</h4>
+          <p className="text-gray-500 mb-12  sendmoneytext hostfont">Crypto shouldn't be complicated. We remove friction <br className="md:d-none"/> so you can spend your crypto with ease.</p>
           <img 
                   src={familyman}
                     alt="People using app" 
@@ -174,19 +163,19 @@ const LightSection = () => (
       </div>
 
       <div className="grid md:grid-cols-3 gap-2 md:gap-4 lg:gap-8 card-section">
-        <div className="px-4 py-10 rounded-[3rem] border border-gray-300 flex flex-col justify-between">
+        <div className="px-4 py-10 rounded-[3rem] border border-gray-300 flex flex-col justify-between hostfont">
           <div className="mb-10 ">
              <img src={crypto} alt="" />
           </div>
           <div>
-           <h4 className="md:text-lg text-2xl font-bold text-gray-900 mb-2 ">Crypto In. Naira Out.</h4>
+           <h4 className="md:text-lg text-2xl font-bold text-gray-900 mb-2  ">Crypto In. Naira Out.</h4>
                 <p className="text-sm text-gray-600">
                   Receive Crypto payments and have them automatically converted to Naira in real time. No middlemen, no delays
                 </p>
           </div>
         </div>
 
-        <div className=" px-4 py-10 rounded-[3rem] border border-gray-300 flex flex-col justify-between">
+        <div className=" px-4 py-10 rounded-[3rem] border border-gray-300 flex flex-col justify-between  hostfont">
           <div className="mb-10">
            <img src={airtime} alt="" />
           </div>
@@ -198,7 +187,7 @@ const LightSection = () => (
           </div>
         </div>
 
-        <div className=" px-4 py-10 rounded-[3rem] border border-gray-300 flex flex-col justify-between">
+        <div className=" px-4 py-10 rounded-[3rem] border border-gray-300 flex flex-col justify-between hostfont">
           <div className="mb-10">
           <img src={chat} alt="" />
           </div>
@@ -218,11 +207,11 @@ const LightSection = () => (
 // --- Sub-components for DarkSection ---
 
 const DarkSection = () => (
-  <section className="py-16 md:py-16  px-2 md:px-6 mx-2 md:mx-0 bg-[#0a0a0a] text-white overflow-hidden rounded-[1rem] md:rounded-[3rem] ">
+  <section className="py-16 md:py-16  px-2 md:px-6 mx-2 md:mx-0 bg-[#0a0a0a] text-white overflow-hidden rounded-[1rem] md:rounded-[3rem] hostfont darksection">
     <div className="max-w-7xl mx-auto px-2 md:px-16 ">
       <div className="text-center mb-8 md:mb-24">
         <h2 className="text-3xl md:text-5xl font-bold mb-6 ">And that is not all</h2>
-        <p className="text-gray-400 max-w-lg mx-auto text-center ">Your Tokicard wallet is packed with neat features that further assist you in <br className="md:d-none"/> operating your daily finances</p>
+        <p className="text-gray-400 max-w-lg mx-auto text-center tokiwallet">Your Tokicard wallet is packed with neat features that <br className="hidden md:block"/> further assist you in <br className="md:hidden"/> operating your daily finances</p>
       </div>
 
       <div className="bg-[#141414] rounded-[1rem] md:rounded-[3rem] p-4 md:p-16 mb-8 border border-white/5 relative overflow-hidden group">
@@ -241,9 +230,9 @@ const DarkSection = () => (
       </div>
 
       <div className="grid md:grid-cols-2 gap-8">
-        <div className="bg-[#141414] rounded-[1rem] md:rounded-[3rem] p-8 md:p-10 border border-white/5 group overflow-hidden">
+        <div className=" bg-[#141414] rounded-[1rem] md:rounded-[3rem] p-8 md:p-10 border border-white/5 group overflow-hidden px-4 py-8 md:p-8">
           <h4 className="text-2xl font-bold mb-4">Virtual Card</h4>
-          <p className="text-gray-400 mb-12">Create virtual cards instantly, load with your local currency, and shop online worldwide.</p>
+          <p className="text-gray-400 mb-12 greyfont">Create virtual cards instantly, load with your <br className="hidden md:block"/>  local currency, and shop online worldwide.</p>
           <div className="relative ">
             <motion.div whileHover={{ scale: 1.05, rotate: -2 }} className="  rounded-[2rem] p-0 md:p-8 shadow-2xl flex flex-col justify-between  virtualcard">
            
@@ -253,34 +242,12 @@ const DarkSection = () => (
           </div>
         </div>
 
-        <div className="bg-[#141414] rounded-[1rem] md:rounded-[3rem] md:p-10 border border-white/5 group overflow-hidden flex flex-col justify-between  p-8">
+        <div className="bg-[#141414] rounded-[1rem] md:rounded-[3rem] md:p-10 border border-white/5 group overflow-hidden flex flex-col justify-between px-4 py-8 md:p-8 mdn">
           <div >
             <h4 className="text-2xl font-bold mb-4">Commissions</h4>
-            <p className="text-gray-400 mb-12">Share Tokicard with others and get rewarded with commissions for every referral.</p>
+            <p className="text-gray-400 mb-12 greyfont">Share Tokicard with others and get rewarded <br className="hidden md:block"/> with commissions for every referral.</p>
           </div>
-          {/* <div className="relative h-64 bg-[#1a1a1a] rounded-t-[2.5rem] mt-12 border-t border-x border-white/10 p-8 overflow-hidden">
-            <div className="text-center relative z-10">
-              <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-3 font-bold">Overall earning</p>
-              <p className="text-4xl font-bold mb-6">₦5,000.00</p>
-              <button className="bg-[#8b2cf5] px-8 py-3 rounded-2xl text-xs font-bold shadow-lg shadow-[#8b2cf5]/30">Request withdrawal</button>
-            </div>
-            <div className="mt-12 space-y-4 opacity-40">
-              {[1, 2].map((i) => (
-                <div key={i} className="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/5">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-white/10 rounded-full" />
-                    <div className="space-y-2">
-                      <div className="w-24 h-2 bg-white/20 rounded-full" />
-                      <div className="w-16 h-1.5 bg-white/10 rounded-full" />
-                    </div>
-                  </div>
-                  <div className="w-16 h-2 bg-emerald-500/30 rounded-full" />
-                </div>
-              ))}
-            </div>
-            <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-full h-40 bg-[#8b2cf5]/20 blur-[60px] rounded-full" />
-          </div> */}
-          <motion.div whileHover={{ scale: 1.05, rotate: 2 }} className="comissiondiv ">
+          <motion.div whileHover={{ scale: 1.05, rotate: 2 }} className="comissiondiv mdn">
             <img src={comission} alt="Commissions" className=" object-contain" />
           </motion.div>
         </div>
@@ -297,7 +264,7 @@ export default function App() {
       <div className="fixed inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_100%)] from-[#8b2cf5]/5 to-transparent pointer-events-none " />
 
     <nav className="fixed top-0 left-0 right-0 z-50  backdrop-blur-md border-b border-purple-200/30 ">
-  <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between w-full py-4 md:py-3 ">
+  <div className="max-w-7xl mx-auto px-4 md:px-6  flex items-center justify-between w-full py-4 md:py-2 headerdiv">
     <Logo />
     <button className="download bg-[#8b2cf5] text-white md:px-8 py-2.5 rounded-full hover:bg-[#7a25d9] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#8b2cf5]/20">
       Download
@@ -305,14 +272,14 @@ export default function App() {
   </div>
 </nav>
 
-     <main className="pt-30 pb-20 px-6 relative  bg-gradient-to-br from-white to-[#ECDFFB]">
-        <div className="max-w-4xl mx-auto text-center mb-8 md:mb-16 relative z-10 better-div">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-boldd betterafrica text-gray-900 mb-2 md:mb-4 leading-tight">
+     <main className="pt-26 pb-20 px-6 relative  bg-gradient-to-br from-white to-[#ECDFFB] maindiv ">
+        <div className="max-w-4xl mx-auto text-center mb-8 md:mb-0 relative z-10 better-div">
+        <h1 className="text-4xl md:text-5xl lg:text-5xl  betterafrica text-gray-900 mb-2  leading-tight">
               A Better Way for Africans <br className="mobile-only"/>
                to Spend Crypto
             </h1>
-            <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto mb-8 md:mb-10 text-center securedirect mt-8">
-              A secure and direct way to turn crypto into <br className="md:none"/> spendable Naira, built for <br className="hidden md:block" />
+            <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto mb-8 md:mb-8 text-center securedirect mt-4 hostfont">
+              A secure and direct way to turn crypto into <br className="md:hidden"/> spendable Naira, built for <br className="hidden md:block" />
               everyday use across Africa
             </p>
           
@@ -337,19 +304,19 @@ export default function App() {
       
       <DarkSection />
 
-    <div className="relative  purplesection">
+    <div className="relative  purplesection hostfont">
       {/* Main Purple Section */}
-      <div className="bg-gradient-to-br from-purple-600 to-purple-700 rounded-3xl rounded-[1rem] md:rounded-[3rem] py-16 md:py-16 px-4 md:px-6 mx-2 md:mx-0 ">
+      <div className="bg-gradient-to-br from-purple-600 to-purple-700 rounded-3xl rounded-[1rem] md:rounded-[3rem] py-8 md:py-16 px-4 md:px-6 mx-2 md:mx-0 hostfont">
         <div className="max-w-7xl mx-auto">
           {/* Text Content */}
           <div className="text-center mb-8">
-            <h1 className="text-white text-2xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight myfont">
-              Get paid in crypto, convert <br className="mobile-only"/>
+            <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight myfont">
+              Get paid in crypto, convert <br className="mobile-only "/>
               automatically, and stay in control
             </h1>
-            <p className="text-white/90 text-base md:text-lg max-w-2xl mx-auto mb-8">
-              With Toldcard, African professionals can get paid in crypto from anyone and have it
-              automatically converted to Naira—quick, simple, and No middle man.
+            <p className="text-white/90 text-base md:text-lg max-w-2xl mx-auto mb-8 withtokicard">
+              With Tokicard, African professionals can get <br className="md:hidden"/> paid  in crypto from anyone and have it <br className="hidden md:block" />
+              automatically converted to Naira—quick, <br className="md:hidden"/> simple, and No middle man.
             </p>
 
            
@@ -383,8 +350,8 @@ export default function App() {
       <div className="bg-white py-6 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Copyright */}
-          <p className="text-sm text-gray-600">
-            Copyright © 2026 Toldcard All Rights Reserved
+          <p className="text-sm text-gray-600 hostfont">
+            Oracle Digital Services LTD, All Rights Reserved.
           </p>
           
           {/* Social Icons */}
