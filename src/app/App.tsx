@@ -306,7 +306,7 @@ export default function App() {
 
     <div className="relative  purplesection hostfont">
       {/* Main Purple Section */}
-      <div className="bg-gradient-to-br from-purple-600 to-purple-700 rounded-3xl rounded-[1rem] md:rounded-[3rem] py-8 md:py-16 px-4 md:px-6 mx-2 md:mx-0 hostfont">
+      <div className="bg-gradient-to-br from-purple-600 to-purple-700 rounded-3xl rounded-[1rem] md:rounded-[3rem] pt-8 pb-16 md:py-16 px-4 md:px-6 mx-2 md:mx-0 hostfont">
         <div className="max-w-7xl mx-auto">
           {/* Text Content */}
           <div className="text-center mb-8">
