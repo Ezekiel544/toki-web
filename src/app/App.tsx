@@ -26,6 +26,7 @@ import Usdt from './components/figma/usdt.svg';
 import Base from './components/figma/base.svg';
 import Googleplay from './components/figma/googleplay.svg';
 import Apple from './components/figma/apple.svg';
+import { useState, useEffect } from 'react';
 import './style.css';
 // --- Components ---
 
@@ -219,7 +220,7 @@ const LightSection = () => (
 // --- Sub-components for DarkSection ---
 
 const DarkSection = () => (
-  <section className="py-16 md:py-16  px-2 md:px-6 mx-2 md:mx-0 bg-[#0a0a0a] text-white overflow-hidden rounded-[1rem] md:rounded-[3rem] hostfont darksection">
+  <section className="bg-black py-16 md:py-16  px-2 md:px-6 mx-2 md:mx-0 bg-[#0a0a0a] text-white overflow-hidden rounded-[1rem] md:rounded-[3rem] hostfont darksection">
     <div className="max-w-7xl mx-auto px-2 md:px-16 darktwo">
       <div className="text-center mb-8 md:mb-24">
         <h2 className="text-3xl md:text-5xl font-bold mb-6 ">And that is not all</h2>
@@ -271,18 +272,40 @@ const DarkSection = () => (
 // --- Main App ---
 
 export default function App() {
+  const [isOverDark, setIsOverDark] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const darkSections = document.querySelectorAll('.dark-section, .bg-black, .bg-gray-900');
+      const navHeight = 80;
+      
+      let isDark = false;
+      darkSections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < navHeight && rect.bottom > 0) {
+          isDark = true;
+        }
+      });
+      
+      setIsOverDark(isDark);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check on mount
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
     <div className=" min-h-screen  text-[#1a1a1a] font-sans selection:bg-[#8b2cf5]/20 overflow-x-hidden w-full ">
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_100%)] from-[#8b2cf5]/5 to-transparent pointer-events-none " />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_100%)] from-[#8b2cf5]/5 to-transparent pointer-events-none mynav" />
 
-    <nav className="fixed top-0 left-0 right-0 z-50  backdrop-blur-md border-b border-purple-200/30 ">
-  <div className="max-w-7xl mx-auto px-4 md:px-6  flex items-center justify-between w-full py-4 md:py-2 headerdiv">
-    <Logo />
-    <button className="download bg-[#8b2cf5] text-white md:px-8 py-2.5 rounded-full hover:bg-[#7a25d9] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#8b2cf5]/20">
-      Download
-    </button>
-  </div>
-</nav>
+  <nav className={`fixed top-0 left-0 right-0 z-50  backdrop-blur-md border-b border-purple-200/30 transition-colors duration-300 ${isOverDark ? 'bg-white/30 shadow-sm' : ''}`}>
+      <div className=" mx-auto px-4 md:px-6 h-20 flex items-center justify-between w-full py-4 md:py-3 navdiv">
+        <Logo />
+        <button className="download bg-[#8b2cf5] text-white md:px-8 py-2.5 rounded-full hover:bg-[#7a25d9] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#8b2cf5]/20">
+          Download
+        </button>
+      </div>
+    </nav>
 
      <main className="pt-26 pb-20 px-6 relative  bg-gradient-to-br from-white to-[#ECDFFB] maindiv ">
         <div className="max-w-4xl mx-auto text-center mb-8 md:mb-0 relative z-10 better-div">
@@ -316,9 +339,9 @@ export default function App() {
       
       <DarkSection />
 
-    <div className="relative  purplesection hostfont">
+    <div className="relative  purplesection hostfont ">
       {/* Main Purple Section */}
-      <div className="bg-gradient-to-br from-purple-600 to-purple-700 rounded-3xl rounded-[1rem] md:rounded-[3rem] pt-8 pb-16 md:py-16 px-4 md:px-6 mx-2 md:mx-0 hostfont">
+      <div className="bg-gradient-to-br from-purple-600 to-purple-700 rounded-3xl rounded-[1rem] md:rounded-[3rem] pt-8 pb-16 md:py-16 px-4 md:px-6 mx-2 md:mx-0 hostfont bg-black">
         <div className="max-w-7xl mx-auto">
           {/* Text Content */}
           <div className="text-center mb-8">

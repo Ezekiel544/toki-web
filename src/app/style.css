@@ -248,7 +248,7 @@
     /* top: 80px; */
     right: -6px;
     margin-top: -30px;
-    margin-right: -70px;
+    
     margin-bottom: -30px;
     width: 100%;
       /* border: 2px solid red; */
@@ -322,4 +322,14 @@ ratefeaturediv{
   .iphone-img{ 
      height: 255px;
   }
+  .darktheme{
+     right: -20px;
+     width: 84%;
+  }
 }
+/* .mynav{
+    border: 2px solid blue;
+}
+.navdiv{
+    border: 2px solid red;
+} */
